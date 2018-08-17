@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="springbootTables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+                        connectionURL="jdbc:mysql://localhost:3306/intecsec_springboot"
+                        userId="root"
+                        password="123456"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.intecse.springboot.core.mapper" targetProject="src/main/java-gen">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/java-gen">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.intecse.springboot.core.mapper" targetProject="src/main/java-gen">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        
+        <table tableName="%" enableCountByExample="false" enableUpdateByExample="false" 
+        		enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+               <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        
+    </context>
+</generatorConfiguration>
