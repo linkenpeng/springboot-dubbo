@@ -1,4 +1,4 @@
-package com.intesec.springboot2.model;
+package com.intesec.core.model;
 
 import java.util.Date;
 

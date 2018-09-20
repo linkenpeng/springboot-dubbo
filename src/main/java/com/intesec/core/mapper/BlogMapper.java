@@ -1,6 +1,6 @@
-package com.intesec.springboot2.mapper;
+package com.intesec.core.mapper;
 
-import com.intesec.springboot2.model.Blog;
+import com.intesec.core.model.Blog;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

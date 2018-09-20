@@ -4,15 +4,59 @@ server:
 
 spring:
     redis:
+        # 这是 cluster 架构的配置
+        # database: 0
+        # lettuce:
+        #  pool:
+        #    max-idle: 10
+        #    max-wait: 500ms
+        # cluster:
+        #   timeout: 1000
+        #   max-redirects: 3
+        #   nodes: 10.82.30.61:6379,10.82.30.61:6380
+
+
+        # Redis数据库索引（默认为0）
         database: 0
-        lettuce:
-          pool:
-            max-idle: 10
-            max-wait: 500ms
-        cluster:
-           timeout: 1000
-           max-redirects: 3
-           nodes: 10.82.30.61:6379,10.82.30.61:6380
+        # Redis服务器地址
+        host: 10.66.48.166
+        # Redis服务器连接端口
+        port: 6379
+        # Redis服务器连接密码（默认为空）
+        password:
+        # 连接池最大连接数（使用负值表示没有限制）
+        # pool:
+          # max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          # max-wait: -1
+        # 连接池中的最大空闲连接
+          # max-idle: 10
+        # 连接池中的最小空闲连接
+          # min-idle: 0
+        # 连接超时时间（毫秒）
+        timeout: 1000ms
+        maxTotal: 50
+        soTimeout: 500
+        connectionTimeout: 500
+        # 保留的最小空闲连接数
+        minIdle: 10
+        # 保留的最大空闲连接数（建议：此值=maxActive）
+        maxIdle: 50
+        # 获取实例 最大等待时间（毫秒），超过等待时间则抛出JedisConnectionException
+        maxWaitMillis: 500
+        # 在获取连接的时候检查有效性
+        testOnBorrow: false
+        # 在将实例返还给pool之前，是否进行有效性校验
+        testOnReturn: false
+        # 是否对空闲对象进行扫描（boolean）（需要timeBetweenEvictionRunsMillis > 0）
+        testWhileIdle: true
+        # 每次扫描，逐出空闲线程的最大数量（可以理解为分批逐出，这是一批的数量）
+        numTestsPerEvictionRun: 30
+        # 空闲连接，停留的最短时间（毫秒）：5分钟
+        minEvictableIdleTimeMillis: 300000
+        # 空闲扫描时间间隔（毫秒）：1分钟
+        timeBetweenEvictionRunsMillis: 60000
+
     datasource:
         name: intecsec_springboot
         type: com.alibaba.druid.pool.DruidDataSource
@@ -47,7 +91,7 @@ spring:
 ## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:
   mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.intesec.springboot2.mapper  # 注意：对应实体类的路径
+  type-aliases-package: com.intesec.core.mapper  # 注意：对应实体类的路径
 
 
 #pagehelper

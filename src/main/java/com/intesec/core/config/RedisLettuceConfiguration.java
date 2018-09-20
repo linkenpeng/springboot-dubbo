@@ -1,4 +1,4 @@
-package com.intesec.springboot2.config;
+package com.intesec.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @create: 2018-08-27 18:47
  **/
 @Configuration
-public class RedisConfiguration {
+public class RedisLettuceConfiguration {
     @Resource
     private LettuceConnectionFactory myLettuceConnectionFactory;
 
@@ -25,12 +25,11 @@ public class RedisConfiguration {
 
         RedisTemplate<String, Serializable> template = new RedisTemplate<>();
 
-        template.setKeySerializer(new StringRedisSerializer());
+        template.setConnectionFactory(myLettuceConnectionFactory);
 
-        //template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(new StringRedisSerializer());
 
-        template.setConnectionFactory(myLettuceConnectionFactory);
 
         return template;
 

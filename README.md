@@ -3,9 +3,11 @@
 
 - 集成Springboot2 (Done) 
 - 整合Mybatis (Done)
-- 整合Redis (TODO)
+- 整合Redis (Done)
 - 整合RocketMQ (TODO)
 - 整合Duboo (TODO)
+- 整合Shiro (TODO)
+
 
 ```flow
 st=>start: 开始

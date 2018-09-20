@@ -1,4 +1,4 @@
-package com.intesec.springboot2.config;
+package com.intesec.core.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,21 +18,19 @@ import java.util.Map;
  * @create: 2018-08-27 18:51
  **/
 @Configuration
-public class RedisFactoryConfig {
+public class RedisLettuceFactoryConfig {
     @Autowired
     private Environment environment;
 
     @Bean
     public RedisConnectionFactory myLettuceConnectionFactory() {
-        Map<String, Object> source = new HashMap<String, Object>();
+        Map<String, Object> source = new HashMap();
 
         source.put("spring.redis.cluster.nodes", environment.getProperty("spring.redis.cluster.nodes"));
         source.put("spring.redis.cluster.timeout", environment.getProperty("spring.redis.cluster.timeout"));
         source.put("spring.redis.cluster.max-redirects", environment.getProperty("spring.redis.cluster.max-redirects"));
 
-        RedisClusterConfiguration redisClusterConfiguration;
-
-        redisClusterConfiguration = new RedisClusterConfiguration(new MapPropertySource("RedisClusterConfiguration", source));
+        RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration(new MapPropertySource("RedisClusterConfiguration", source));
 
         return new LettuceConnectionFactory(redisClusterConfiguration);
 

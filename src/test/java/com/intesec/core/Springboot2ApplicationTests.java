@@ -1,4 +1,4 @@
-package com.intesec.springboot2;
+package com.intesec.core;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

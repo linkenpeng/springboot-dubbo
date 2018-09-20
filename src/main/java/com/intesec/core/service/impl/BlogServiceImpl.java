@@ -1,10 +1,10 @@
-package com.intesec.springboot2.service.impl;
+package com.intesec.core.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.intesec.springboot2.mapper.BlogMapper;
-import com.intesec.springboot2.model.Blog;
-import com.intesec.springboot2.service.BlogService;
+import com.intesec.core.mapper.BlogMapper;
+import com.intesec.core.model.Blog;
+import com.intesec.core.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

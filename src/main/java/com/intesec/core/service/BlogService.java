@@ -1,7 +1,7 @@
-package com.intesec.springboot2.service;
+package com.intesec.core.service;
 
 import com.github.pagehelper.PageInfo;
-import com.intesec.springboot2.model.Blog;
+import com.intesec.core.model.Blog;
 
 /**
  * @description: 博客

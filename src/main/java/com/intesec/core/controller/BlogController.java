@@ -1,7 +1,7 @@
-package com.intesec.springboot2.controller;
+package com.intesec.core.controller;
 
-import com.intesec.springboot2.model.Blog;
-import com.intesec.springboot2.service.BlogService;
+import com.intesec.core.model.Blog;
+import com.intesec.core.service.BlogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
