@@ -27,7 +27,7 @@
     delete from blog
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.intesec.springboot2.model.Blog" >
+  <insert id="insert" parameterType="com.intesec.core.model.Blog" >
     insert into blog (id, title, content, 
       delete_mark, create_time, update_time
       )

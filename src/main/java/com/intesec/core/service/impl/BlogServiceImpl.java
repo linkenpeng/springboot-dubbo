@@ -17,6 +17,7 @@ import java.util.List;
  **/
 @Service("blogService")
 public class BlogServiceImpl implements BlogService {
+
     @Autowired
     private BlogMapper blogMapper;
 
@@ -32,5 +33,10 @@ public class BlogServiceImpl implements BlogService {
         List<Blog> blogs = blogMapper.getBlogList(offset, pageSize);
         PageInfo<Blog> result = new PageInfo<>(blogs);
         return result;
+    }
+
+    @Override
+    public Blog getOne(int id) {
+        return blogMapper.selectByPrimaryKey(id);
     }
 }

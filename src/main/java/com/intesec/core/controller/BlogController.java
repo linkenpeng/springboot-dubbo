@@ -2,6 +2,8 @@ package com.intesec.core.controller;
 
 import com.intesec.core.model.Blog;
 import com.intesec.core.service.BlogService;
+import com.intesec.core.util.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +17,13 @@ import java.util.Date;
  **/
 @Controller
 @RequestMapping("/blog")
+@Slf4j
 public class BlogController {
     @Resource
     private BlogService blogService;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     @ResponseBody
     @PostMapping("/add")
@@ -33,5 +39,20 @@ public class BlogController {
     public Object getBlogList(@RequestParam(name = "pageNum", required = false, defaultValue = "1") int pageNum,
                               @RequestParam(name = "pageSize", required = false, defaultValue = "20") int pageSize) {
         return  blogService.getBlogList(pageNum, pageSize);
+    }
+
+    @ResponseBody
+    @GetMapping("/info")
+    public Object getBlog(@RequestParam(name = "id", required = true, defaultValue = "1") int id) {
+        String cacheKey = "blog_" + id;
+        Blog blog = (Blog) redisUtil.get(cacheKey);
+        log.info("get blog cache: {}", blog);
+        if(blog == null) {
+            blog = blogService.getOne(id);
+            log.info("set blog cache: {}", blog);
+            redisUtil.set(cacheKey, blog);
+        }
+
+        return  blogService.getOne(id);
     }
 }

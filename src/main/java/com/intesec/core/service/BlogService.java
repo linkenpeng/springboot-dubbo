@@ -12,4 +12,6 @@ public interface BlogService {
     int addBlog(Blog blog);
 
     PageInfo<Blog> getBlogList(int pageNum, int pageSize);
+
+    Blog getOne(int id);
 }
