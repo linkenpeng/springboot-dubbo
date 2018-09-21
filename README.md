@@ -4,7 +4,7 @@
 - 集成Springboot2 (Done) 
 - 整合Mybatis (Done)
 - 整合Redis (Done)
-- 整合RocketMQ (TODO)
+- 整合RocketMQ (Done)
 - 整合Duboo (TODO)
 - 整合Shiro (TODO)
 

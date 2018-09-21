@@ -90,14 +90,33 @@ spring:
 
 ## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:
-  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.intesec.core.mapper  # 注意：对应实体类的路径
+  # 注意：一定要对应mapper映射xml文件的所在路径
+  mapper-locations: classpath:mapper/*.xml
+  # 注意：对应实体类的路径
+  type-aliases-package: com.intesec.core.mapper
 
 
-#pagehelper
+# page helper
 pagehelper:
     helperDialect: mysql
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
     returnPageInfo: check
+
+
+# RocketMQ配置
+apache:
+  rocketmq:
+    # 消费者的组名
+    consumer:
+      pushConsumer: PushConsumer
+    # 生产者的组名
+    producer:
+      producerGroup: Producer
+    # NameServer地址
+    namesrvAddr: 10.82.30.61:10911
+    # 启动的时候是否消费历史记录
+    enableHisConsumer: false
+    # 启动顺序消费
+    enableOrderConsumer: false
