@@ -115,7 +115,7 @@ apache:
     producer:
       producerGroup: Producer
     # NameServer地址
-    namesrvAddr: 10.82.30.61:10911
+    namesrvAddr: localhost:9876
     # 启动的时候是否消费历史记录
     enableHisConsumer: false
     # 启动顺序消费

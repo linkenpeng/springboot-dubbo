@@ -36,7 +36,7 @@ public class RocketMqProducer {
             for (int i = 0; i < 100; i++) {
                 String messageBody = "我是message: " + i;
                 String message = new String(messageBody.getBytes(), "utf-8");
-                Message msg = new Message("PushTopic", "pushTag", "key_" + i, message.getBytes());
+                Message msg = new Message("BenchmarkTest", "pushTag", "key_" + i, message.getBytes());
 
                 SendResult result = producer.send(msg);
                 log.info("发送响应：MsgId:" + result.getMsgId() + "，发送状态:" + result.getSendStatus());
