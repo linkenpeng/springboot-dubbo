@@ -5,6 +5,7 @@
 - 整合Mybatis (Done)
 - 整合Redis (Done)
 - 整合RocketMQ (Done)
+- 整合Sentinel (Done)
 - 整合Duboo (TODO)
 - 整合Shiro (TODO)
 

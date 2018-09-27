@@ -120,3 +120,15 @@ apache:
     enableHisConsumer: false
     # 启动顺序消费
     enableOrderConsumer: false
+
+debug: false
+logging:
+  level:
+    root: info
+    org:
+      springframework: error
+      mybatis: error
+  # path: /data/logs/springboot
+  # file: root.log
+  config: classpath:logback-spring.xml
+
