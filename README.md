@@ -2,12 +2,13 @@
 
 
 - 集成Springboot2 (Done) 
-- 整合Mybatis (Done)
+- 整合Mybatis, Mybatis Generator (Done)
 - 整合Redis (Done)
 - 整合RocketMQ (Done)
 - 整合Sentinel (Done)
+- Maven多模块 (Done)
 - 整合Duboo (TODO)
-- 整合Shiro (TODO)
+- 整合Shiro/Spring Security (TODO)
 
 
 ```flow
