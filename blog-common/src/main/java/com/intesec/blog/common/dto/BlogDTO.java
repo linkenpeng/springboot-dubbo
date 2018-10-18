@@ -1,0 +1,24 @@
+package com.intesec.blog.common.dto;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * @description: Blog
+ * @author: peter.peng
+ * @create: 2018-10-18 11:28
+ **/
+public class BlogDTO implements Serializable {
+
+    private Integer id;
+
+    private String title;
+
+    private String content;
+
+    private Byte deleteMark;
+
+    private Date createTime;
+
+    private Date updateTime;
+}

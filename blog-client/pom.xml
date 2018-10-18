@@ -12,4 +12,14 @@
     <artifactId>blog-client</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.intesec.blog</groupId>
+            <artifactId>blog-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
+
 </project>

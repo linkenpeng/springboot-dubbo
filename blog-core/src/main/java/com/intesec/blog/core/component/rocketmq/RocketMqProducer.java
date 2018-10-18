@@ -29,14 +29,15 @@ public class RocketMqProducer {
         DefaultMQProducer producer = new DefaultMQProducer();
         producer.setNamesrvAddr(nameservAddr);
         producer.setProducerGroup(producerGroup);
+        producer.setVipChannelEnabled(false);
 
         try {
             producer.start();
 
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 10; i++) {
                 String messageBody = "我是message: " + i;
                 String message = new String(messageBody.getBytes(), "utf-8");
-                Message msg = new Message("BenchmarkTest", "pushTag", "key_" + i, message.getBytes());
+                Message msg = new Message(EnumMqTopicTag.BLOG_MQ.getTopic(), EnumMqTopicTag.BLOG_MQ.getTag(), "key_" + i, message.getBytes());
 
                 SendResult result = producer.send(msg);
                 log.info("发送响应：MsgId:" + result.getMsgId() + "，发送状态:" + result.getSendStatus());

@@ -35,9 +35,10 @@ public class RocketMqConsumer {
         consumer.setNamesrvAddr(nameservAddr);
 
         try {
-            consumer.subscribe("BenchmarkTest", "pushTag");
+            consumer.subscribe(EnumMqTopicTag.BLOG_MQ.getTopic(), EnumMqTopicTag.BLOG_MQ.getTag());
             consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
             consumer.setConsumerGroup(consumerGroup);
+            consumer.setVipChannelEnabled(false);
             consumer.registerMessageListener(new MessageListenerConcurrently() {
                 @Override
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list,
