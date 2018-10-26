@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+  <dubbo:application name="${dubbo.application.name}" />
+
+  <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}"/>
+  <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" threadpool="cached" threads="${dubbo.provider.threads}"/>
+
+  <!-- 作为服务提供者 -->
+  <dubbo:provider retries="0" group="${dubbo.provider.group}" timeout="3000" protocol="dubbo"/>
+  <dubbo:service interface="com.intesec.blog.client.BlogClient" ref="blogClientImpl" />
+  <!-- 作为服务提供者 end -->
+
+  <!-- ******** -->
+  <!-- 作为消费者配置 -->
+  <dubbo:consumer timeout="2000" retries="0" check="false" />
+</beans>

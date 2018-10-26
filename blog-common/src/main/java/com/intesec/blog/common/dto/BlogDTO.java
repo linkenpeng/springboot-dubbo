@@ -1,5 +1,7 @@
 package com.intesec.blog.common.dto;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,6 +10,7 @@ import java.util.Date;
  * @author: peter.peng
  * @create: 2018-10-18 11:28
  **/
+@Data
 public class BlogDTO implements Serializable {
 
     private Integer id;
