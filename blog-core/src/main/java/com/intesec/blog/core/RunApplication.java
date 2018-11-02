@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @EnableCaching
-@MapperScan("com.intesec.blog.core.mapper")
+@MapperScan("common.intesec.blog.core.mapper")
 @ComponentScan(basePackages = "com.intesec.blog.core")
 @ImportResource({ "classpath:spring-context.xml" })
 @EnableAutoConfiguration
