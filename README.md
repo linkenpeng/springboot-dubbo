@@ -8,7 +8,7 @@
 - 整合Sentinel (Done)
 - Maven多模块 (Done)
 - 整合Reponse统一输出，方便Controller层使用 (Done)
-- 整合Duboo (TODO)
+- 整合Duboo (Done)
 - 整合Shiro/Spring Security (TODO)
 
 
