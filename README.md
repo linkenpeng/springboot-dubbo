@@ -1,15 +1,22 @@
-# springboot2
+#  Spring Boot Demo
 
+```
+基于 Spring Boot 最新版的演示项目
+```
 
-- 集成Springboot2 (Done) 
-- 整合Mybatis, Mybatis Generator (Done)
-- 整合Redis (Done)
-- 整合RocketMQ (Done)
-- 整合Sentinel (Done)
-- Maven多模块 (Done)
-- 整合Reponse统一输出，方便Controller层使用 (Done)
-- 整合Duboo (Done)
-- 整合Shiro/Spring Security (TODO)
+#### Done
+- 集成Spring Boot
+- 整合Mybatis, Mybatis Generator
+- 整合Redis
+- 整合RocketMQ
+- 整合Sentinel
+- Maven多模块
+- 整合Reponse统一输出，方便Controller层使用
+- 整合Duboo
+
+### Todo
+- 整合Shiro/Spring Security
+- 拆分模块为User, Goods, Order
 
 
 ```flow
