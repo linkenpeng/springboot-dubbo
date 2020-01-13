@@ -2,8 +2,8 @@ package com.intesec.blog.core.controller;
 
 import com.intesec.blog.client.BlogClient;
 import com.intesec.blog.common.dto.BlogDTO;
-import com.intesec.common.utils.ResponseUtils;
-import com.intesec.common.utils.TraceUtil;
+import com.intesec.mall.common.utils.RestResponse;
+import com.intesec.mall.common.utils.TraceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,19 +32,19 @@ public class BlogController {
         blog.setContent(TraceUtil.currentTraceId() + "内容");
         blog.setCreateTime(new Date());
         blog.setUpdateTime(new Date());
-        return ResponseUtils.getSuccessApiResponseStr(blogClient.addBlog(blog));
+        return RestResponse.success(blogClient.addBlog(blog));
     }
 
     @ResponseBody
     @GetMapping("/list")
     public Object getBlogList(@RequestParam(name = "pageNum", required = false, defaultValue = "1") int pageNum,
                               @RequestParam(name = "pageSize", required = false, defaultValue = "20") int pageSize) {
-        return ResponseUtils.getSuccessApiResponseStr(blogClient.getBlogList(pageNum, pageSize));
+        return RestResponse.success(blogClient.getBlogList(pageNum, pageSize));
     }
 
     @ResponseBody
     @GetMapping("/info")
     public Object getBlog(@RequestParam(name = "id", required = true, defaultValue = "1") int id) {
-        return  ResponseUtils.getSuccessApiResponseStr(blogClient.getOne(id));
+        return RestResponse.success(blogClient.getOne(id));
     }
 }

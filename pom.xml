@@ -3,21 +3,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.intesec.blog</groupId>
-	<artifactId>blog</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.intesec.mall</groupId>
+	<artifactId>mall</artifactId>
+	<version>0.0.1</version>
 
 	<modules>
 		<module>blog-core</module>
 		<module>blog-common</module>
 		<module>blog-client</module>
-		<module>blog-rest-api</module>
-	</modules>
+		<module>gateway</module>
+        <module>common</module>
+    </modules>
 
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>
-	<description>Blog For Intecsec</description>
+	<description>Intecsec Mall</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -31,11 +32,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<mysql.version>5.1.44</mysql.version>
-		<dubbo.version>2.5.3</dubbo.version>
-		<zk.version>0.2</zk.version>
+		<dubbo.version>2.7.5</dubbo.version>
+		<curator.version>4.2.0</curator.version>
+		<zk.version>0.11</zk.version>
 		<spring.boot.version>1.3.2</spring.boot.version>
 		<page.helper.version>1.2.5</page.helper.version>
-		<commons.lang3>3.4</commons.lang3>
+		<commons.lang3.version>3.4</commons.lang3.version>
 		<druid.version>1.1.9</druid.version>
 		<mybatis.generator.version>1.3.2</mybatis.generator.version>
 		<rocketmq.version>4.3.0</rocketmq.version>
@@ -59,6 +61,11 @@
 				<artifactId>blog-client</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -68,9 +75,14 @@
 
 			<!-- dubbo -->
 			<dependency>
-				<groupId>com.alibaba</groupId>
+				<groupId>org.apache.dubbo</groupId>
 				<artifactId>dubbo</artifactId>
 				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-recipes</artifactId>
+				<version>${curator.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.101tec</groupId>
@@ -93,7 +105,7 @@
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
-				<version>${commons.lang3}</version>
+				<version>${commons.lang3.version}</version>
 			</dependency>
 
 			<dependency>

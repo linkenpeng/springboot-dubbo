@@ -1,7 +1,7 @@
-package com.intesec.common.Response;
+package com.intesec.mall.common.Response;
 
-import com.intesec.common.Enums.ResponseEnum;
-import com.intesec.common.utils.TraceUtil;
+import com.intesec.mall.common.Enums.ResponseEnum;
+import com.intesec.mall.common.utils.TraceUtil;
 
 /**
  * @description: 输出Json

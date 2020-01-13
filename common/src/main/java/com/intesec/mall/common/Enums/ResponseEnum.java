@@ -1,4 +1,4 @@
-package com.intesec.common.Enums;
+package com.intesec.mall.common.Enums;
 
 /**
  * @description: 响应码

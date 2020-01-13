@@ -1,4 +1,4 @@
-package com.intesec.common.utils;
+package com.intesec.mall.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
@@ -13,11 +13,7 @@ import java.util.UUID;
 public class TraceUtil {
     private static final String logName = "traceId";
 
-    private static ThreadLocal<String> tl = new ThreadLocal<String>() {
-        protected String initialValue() {
-            return UUID.randomUUID().toString().replaceAll("-", "");
-        }
-    };
+    private static ThreadLocal<String> tl = ThreadLocal.withInitial(() -> UUID.randomUUID().toString().replaceAll("-", ""));
 
     public static String currentTraceId() {
         String traceId = MDC.get(logName);
