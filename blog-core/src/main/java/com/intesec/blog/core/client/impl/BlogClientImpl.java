@@ -5,10 +5,10 @@ import com.intesec.blog.client.BlogClient;
 import com.intesec.blog.common.dto.BlogDTO;
 import com.intesec.blog.core.model.Blog;
 import com.intesec.blog.core.service.BlogService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,7 @@ import java.util.List;
  * @create: 2018-10-26 11:50
  **/
 @Component
+@Service(version = "1.0.0")
 public class BlogClientImpl implements BlogClient {
     @Autowired
     private BlogService blogService;
