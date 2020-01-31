@@ -1,8 +1,12 @@
 package com.intesec.blog.app.client.impl;
 
+import com.intesec.blog.app.entity.Blog;
+import com.intesec.blog.app.mapper.BlogMapper;
 import com.intesec.blog.client.BlogClient;
 import com.intesec.blog.common.dto.BlogDTO;
 import org.apache.dubbo.config.annotation.Service;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,6 +21,8 @@ import java.util.List;
 @Component
 @Service(version = "1.0.0")
 public class BlogClientImpl implements BlogClient {
+    @Autowired
+    private BlogMapper blogMapper;
 
     @Override
     public int addBlog(BlogDTO blogDTO) {
@@ -34,6 +40,10 @@ public class BlogClientImpl implements BlogClient {
         BlogDTO blogDTO = new BlogDTO();
         blogDTO.setTitle("blog title");
         blogDTO.setCreateTime(new Date());
+
+        Blog blog = blogMapper.selectByPrimaryKey(id);
+        BeanUtils.copyProperties(blog, blogDTO);
+
         return blogDTO;
     }
 }

@@ -5,10 +5,7 @@ import com.intesec.mall.common.utils.RestResponse;
 import com.intesec.mall.gateway.rpc.BlogRpc;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @description:
@@ -38,7 +35,7 @@ public class HomeController {
 
     @GetMapping("/blogInfo")
     @ResponseBody
-    public String blogInfo() {
-        return RestResponse.success(blogClient.getOne(1));
+    public String blogInfo(@RequestParam(name = "id", defaultValue = "1") int id) {
+        return RestResponse.success(blogClient.getOne(id));
     }
 }
