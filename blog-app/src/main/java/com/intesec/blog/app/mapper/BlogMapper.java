@@ -2,6 +2,9 @@ package com.intesec.blog.app.mapper;
 
 import com.intesec.blog.app.entity.Blog;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface BlogMapper {
@@ -16,4 +19,6 @@ public interface BlogMapper {
     int updateByPrimaryKeySelective(Blog record);
 
     int updateByPrimaryKey(Blog record);
+
+    List<Blog> getBlogList(@Param(value = "offset") int offset, @Param(value = "count") int count);
 }
