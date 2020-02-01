@@ -4,8 +4,10 @@ import com.intesec.blog.app.entity.Blog;
 import com.intesec.blog.app.manager.BlogManager;
 import com.intesec.blog.app.mapper.BlogMapper;
 import com.intesec.blog.app.redis.RedisUtil;
+import com.intesec.blog.app.rocketmq.RocketMqProducer;
 import com.intesec.blog.common.dto.BlogDTO;
 import com.intesec.mall.common.utils.DOUtils;
+import com.intesec.mall.common.utils.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,9 @@ public class BlogManagerImpl implements BlogManager {
 
     @Resource
     private RedisUtil redisUtil;
+
+    @Autowired
+    private RocketMqProducer mqProducer;
 
     @Override
     public int addBlog(BlogDTO blogDTO) {
@@ -53,14 +58,15 @@ public class BlogManagerImpl implements BlogManager {
         Blog blog = null;
         try {
             blog = (Blog) redisUtil.get(cacheKey);
+            mqProducer.sendMq(JsonUtils.toJson(blog));
         } catch (Exception e) {
             redisUtil.del(cacheKey);
         }
 
-        log.info("get blog from cache: {}", blog);
+        log.info("get blog from cache: {}", JsonUtils.toJson(blog));
         if(blog == null) {
             blog = blogMapper.selectByPrimaryKey(id);
-            log.info("set blog cache: {}", blog);
+            log.info("set blog cache: {}", JsonUtils.toJson(blog));
             redisUtil.set(cacheKey, blog, 600);
         }
 
