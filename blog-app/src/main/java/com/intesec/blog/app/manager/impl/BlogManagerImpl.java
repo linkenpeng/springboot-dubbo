@@ -47,6 +47,7 @@ public class BlogManagerImpl implements BlogManager {
         List<Blog> blogs = blogMapper.getBlogList(offset, pageSize);
 
         List<BlogDTO> blogDTOS = DOUtils.copyList(blogs, BlogDTO.class);
+
         return blogDTOS;
     }
 
