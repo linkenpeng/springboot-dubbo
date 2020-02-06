@@ -15,6 +15,7 @@ import javax.activation.DataSource;
  * @create: 2020-02-05 15:35
  **/
 @Configuration
+@Import({CustomerBo.class, SchedulerBo.class})
 public class AppConfig {
 
     @Bean
