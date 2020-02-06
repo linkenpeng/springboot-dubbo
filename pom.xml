@@ -3,18 +3,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.intesec.mall</groupId>
+	<groupId>com.intecsec.mall</groupId>
 	<artifactId>mall</artifactId>
 	<version>0.0.1</version>
 
 	<modules>
-		<module>blog-core</module>
+		<module>blog-app</module>
 		<module>blog-common</module>
 		<module>blog-client</module>
 		<module>gateway</module>
-        <module>common</module>
-		<module>blog-app</module>
+		<module>common</module>
         <module>dubbo-common</module>
+        <module>config-annotation</module>
     </modules>
 
 	<packaging>pom</packaging>
@@ -79,6 +79,7 @@
 				<groupId>${project.groupId}</groupId>
 				<artifactId>dubbo-common</artifactId>
 				<version>${project.version}</version>
+				<type>pom</type>
 			</dependency>
 
 			<!-- dubbo 启动器 -->
@@ -91,6 +92,7 @@
 				<groupId>org.apache.dubbo</groupId>
 				<artifactId>dubbo-dependencies-zookeeper</artifactId>
 				<version>${dubbo.dependency.zookeeper.version}</version>
+				<type>pom</type>
 			</dependency>
 
 			<!--

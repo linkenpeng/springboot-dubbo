@@ -31,11 +31,11 @@
     </appender>
 
     <!-- myibatis log configure -->
-    <logger name="com.intesec.blog.app.mapper" level="DEBUG" additivity="false">
+    <logger name="com.intecsec.blog.app.mapper" level="DEBUG" additivity="false">
         <appender-ref ref="blogAppAppender" />
     </logger>
 
-    <logger name="com.intesec.blog.app" level="INFO" additivity="false">
+    <logger name="com.intecsec.blog.app" level="INFO" additivity="false">
         <appender-ref ref="blogAppAppender" />
     </logger>
 
