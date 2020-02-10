@@ -15,6 +15,7 @@
 		<module>common</module>
         <module>dubbo-common</module>
         <module>config-annotation</module>
+        <module>redis-common</module>
     </modules>
 
 	<packaging>pom</packaging>
@@ -38,6 +39,7 @@
 		<dubbo.dependency.zookeeper.version>2.7.5</dubbo.dependency.zookeeper.version>
 		<mybatis.spring.boot.starter.version>2.1.1</mybatis.spring.boot.starter.version>
 		<spring.boot.starter.jdbc.version>2.2.2.RELEASE</spring.boot.starter.jdbc.version>
+		<spring.boot.starter.version>2.2.2.RELEASE</spring.boot.starter.version>
 		<page.helper.version>1.2.5</page.helper.version>
 		<commons.lang3.version>3.4</commons.lang3.version>
 		<druid.version>1.1.9</druid.version>
@@ -82,6 +84,12 @@
 				<type>pom</type>
 			</dependency>
 
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>redis-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<!-- dubbo 启动器 -->
 			<dependency>
 				<groupId>org.apache.dubbo</groupId>
@@ -124,6 +132,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-jdbc</artifactId>
 				<version>${spring.boot.starter.jdbc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-json</artifactId>
+				<version>${spring.boot.starter.version}</version>
 			</dependency>
 
 			<dependency>

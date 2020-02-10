@@ -1,4 +1,4 @@
-package com.intecsec.blog.app.redis;
+package com.intecsec.mall.redis;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

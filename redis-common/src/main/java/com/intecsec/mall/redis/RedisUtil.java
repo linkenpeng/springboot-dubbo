@@ -1,4 +1,4 @@
-package com.intecsec.blog.app.redis;
+package com.intecsec.mall.redis;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
