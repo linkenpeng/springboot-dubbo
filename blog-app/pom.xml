@@ -19,7 +19,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>dubbo-common</artifactId>
+            <artifactId>common-dubbo</artifactId>
             <type>pom</type>
         </dependency>
 
@@ -50,7 +50,7 @@
         <!-- 缓存redis -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>redis-common</artifactId>
+            <artifactId>common-redis</artifactId>
         </dependency>
 
         <!-- 消息队列 -->

@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
  * @create: 2020-02-10 09:18
  **/
 @Configuration
-public class ConfigComponet {
+public class ConfigComponent {
 
-    @Bean("redisUtl")
+    @Bean("redisUtil")
     public RedisUtil redisUtil() {
         return new RedisUtil();
     }

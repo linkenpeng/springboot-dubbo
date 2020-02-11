@@ -29,20 +29,10 @@ public class BlogConsumer extends ConsumerBase implements ApplicationListener<Co
         }
     }
 
+
     @Override
-    public ConsumeConcurrentlyStatus dealBody(List<MessageExt> msgs)  {
-        int num = 1;
-        log.info("进入");
-        for(MessageExt msg : msgs) {
-            log.info("第" + num + "次消息");
-            try {
-                String msgStr = new String(msg.getBody(), "utf-8");
-                log.info(msgStr);
-            } catch (UnsupportedEncodingException e) {
-                log.error("body转字符串解析失败");
-            }
-        }
-        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+    public void dealMessage(String msg) {
+        log.info("消费mq, msg:{}", msg);
     }
 }
 

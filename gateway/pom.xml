@@ -19,7 +19,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>dubbo-common</artifactId>
+            <artifactId>common-dubbo</artifactId>
             <type>pom</type>
         </dependency>
 

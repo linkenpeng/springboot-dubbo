@@ -20,14 +20,14 @@ public class RocketMqProducer {
     @Autowired
     private RocketMqConfig rocketMqConfig;
 
-    public void sendMq(EnumMqTopicTag enumMqTopicTag, String key, String msg) {
+    public void sendMq(MqTopicTag mqTopicTag, String key, String msg) {
         DefaultMQProducer producer = new DefaultMQProducer(rocketMqConfig.getProducerGroupName());
         producer.setVipChannelEnabled(false);
         producer.setNamesrvAddr(rocketMqConfig.getNamesrvAddr());
         try {
             producer.start();
             log.info("send msg: {}", msg);
-            Message message = new Message(enumMqTopicTag.getTopic(), enumMqTopicTag.getTag(), key, msg.getBytes());
+            Message message = new Message(mqTopicTag.getTopic(), mqTopicTag.getTag(), key, msg.getBytes());
             SendResult result = producer.send(message);
             log.info("发送响应：MsgId:" + result.getMsgId() + "，发送状态:" + result.getSendStatus());
         } catch (MQClientException e) {

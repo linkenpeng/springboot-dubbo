@@ -21,7 +21,7 @@ import java.util.List;
  * @author: peter.peng
  * @create: 2018-08-23 16:49
  **/
-@Service("blogService")
+@Service()
 @Slf4j
 public class BlogManagerImpl implements BlogManager {
 
@@ -60,12 +60,14 @@ public class BlogManagerImpl implements BlogManager {
         Blog blog = null;
         try {
             blog = (Blog) redisUtil.get(cacheKey);
+
+            log.info("get blog from cache key:{}, value:{}", cacheKey, JsonUtils.toJson(blog));
+
             mqProducer.sendMq(EnumMqTopicTag.BLOG_MQ, String.valueOf(blog.getId()), JsonUtils.toJson(blog));
         } catch (Exception e) {
             redisUtil.del(cacheKey);
         }
 
-        log.info("get blog from cache: {}", JsonUtils.toJson(blog));
         if(blog == null) {
             blog = blogMapper.selectByPrimaryKey(id);
             log.info("set blog cache: {}", JsonUtils.toJson(blog));

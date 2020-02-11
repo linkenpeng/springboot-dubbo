@@ -9,6 +9,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -24,15 +25,15 @@ public abstract class ConsumerBase {
     private RocketMqConfig rocketMqConfig;
 
     // 开启消费者监听服务
-    public void listener(EnumMqTopicTag enumMqTopicTag) throws MQClientException {
-        log.info("开启" + enumMqTopicTag.getTopic() + ":" + enumMqTopicTag.getTag() + "消费者-------------------");
+    public void listener(MqTopicTag mqTopicTag) throws MQClientException {
+        log.info("开启" + mqTopicTag.getTopic() + ":" + mqTopicTag.getTag() + "消费者-------------------");
         log.info(rocketMqConfig.toString());
 
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(rocketMqConfig.getConsumerGroupName());
 
         consumer.setNamesrvAddr(rocketMqConfig.getNamesrvAddr());
         consumer.setVipChannelEnabled(false);
-        consumer.subscribe(enumMqTopicTag.getTopic(), enumMqTopicTag.getTag());
+        consumer.subscribe(mqTopicTag.getTopic(), mqTopicTag.getTag());
 
         // 开启内部类实现监听
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> ConsumerBase.this.dealBody(msgs));
@@ -43,7 +44,21 @@ public abstract class ConsumerBase {
 
     }
 
-    // 处理body的业务
-    public abstract ConsumeConcurrentlyStatus dealBody(List<MessageExt> msgs);
+    private ConsumeConcurrentlyStatus dealBody(List<MessageExt> msgs) {
+        int num = 1;
+        log.info("进入");
+        for(MessageExt msg : msgs) {
+            log.info("第" + num + "次消息");
+            try {
+                String msgStr = new String(msg.getBody(), "utf-8");
+                dealMessage(msgStr);
+            } catch (UnsupportedEncodingException e) {
+                log.error("body转字符串解析失败");
+            }
+        }
+        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+    }
+
+    public abstract void dealMessage(String msg);
 
 }

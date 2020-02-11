@@ -5,7 +5,7 @@ package com.intecsec.blog.app.rocketmq;
  * @author: peter.peng
  * @create: 2018-10-18 17:57
  **/
-public enum EnumMqTopicTag {
+public enum EnumMqTopicTag implements MqTopicTag {
     BLOG_MQ("PushTopic", "pushTag");
 
     private String topic;
@@ -16,19 +16,13 @@ public enum EnumMqTopicTag {
         this.tag = tag;
     }
 
+    @Override
     public String getTopic() {
         return topic;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
+    @Override
     public String getTag() {
         return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 }

@@ -12,10 +12,10 @@
 		<module>blog-common</module>
 		<module>blog-client</module>
 		<module>gateway</module>
+		<module>config-annotation</module>
 		<module>common</module>
-        <module>dubbo-common</module>
-        <module>config-annotation</module>
-        <module>redis-common</module>
+		<module>common-dubbo</module>
+        <module>common-redis</module>
     </modules>
 
 	<packaging>pom</packaging>
@@ -79,14 +79,14 @@
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>dubbo-common</artifactId>
+				<artifactId>common-dubbo</artifactId>
 				<version>${project.version}</version>
 				<type>pom</type>
 			</dependency>
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>redis-common</artifactId>
+				<artifactId>common-redis</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
