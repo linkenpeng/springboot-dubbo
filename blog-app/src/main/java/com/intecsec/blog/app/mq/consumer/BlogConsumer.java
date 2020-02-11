@@ -1,15 +1,11 @@
-package com.intecsec.blog.app.rocketmq;
+package com.intecsec.blog.app.mq.consumer;
 
+import com.intecsec.mall.rocketmq.ConsumerBase;
 import lombok.extern.log4j.Log4j2;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ContextRefreshedEvent;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 /**
  * @description:
@@ -21,14 +17,13 @@ import java.util.List;
 public class BlogConsumer extends ConsumerBase implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent arg0) {
+    public void onApplicationEvent(ContextRefreshedEvent event) {
         try {
-            super.listener(EnumMqTopicTag.BLOG_MQ);
+            super.listener(BlogMqTopicTag.BLOG_INFO_MQ);
         } catch (MQClientException e) {
             log.error("消费者监听器启动失败", e);
         }
     }
-
 
     @Override
     public void dealMessage(String msg) {

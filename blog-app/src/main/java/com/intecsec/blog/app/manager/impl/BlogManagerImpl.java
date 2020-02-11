@@ -3,12 +3,12 @@ package com.intecsec.blog.app.manager.impl;
 import com.intecsec.blog.app.entity.Blog;
 import com.intecsec.blog.app.manager.BlogManager;
 import com.intecsec.blog.app.mapper.BlogMapper;
-import com.intecsec.blog.app.rocketmq.EnumMqTopicTag;
-import com.intecsec.blog.app.rocketmq.RocketMqProducer;
+import com.intecsec.blog.app.mq.consumer.BlogMqTopicTag;
 import com.intecsec.blog.common.dto.BlogDTO;
 import com.intecsec.mall.common.utils.DOUtils;
 import com.intecsec.mall.common.utils.JsonUtils;
 import com.intecsec.mall.redis.RedisUtil;
+import com.intecsec.mall.rocketmq.RocketMqProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,10 +60,7 @@ public class BlogManagerImpl implements BlogManager {
         Blog blog = null;
         try {
             blog = (Blog) redisUtil.get(cacheKey);
-
             log.info("get blog from cache key:{}, value:{}", cacheKey, JsonUtils.toJson(blog));
-
-            mqProducer.sendMq(EnumMqTopicTag.BLOG_MQ, String.valueOf(blog.getId()), JsonUtils.toJson(blog));
         } catch (Exception e) {
             redisUtil.del(cacheKey);
         }
@@ -73,6 +70,8 @@ public class BlogManagerImpl implements BlogManager {
             log.info("set blog cache: {}", JsonUtils.toJson(blog));
             redisUtil.set(cacheKey, blog, 600);
         }
+
+        mqProducer.sendMq(BlogMqTopicTag.BLOG_INFO_MQ, String.valueOf(blog.getId()), JsonUtils.toJson(blog));
 
         return DOUtils.copy(blog, BlogDTO.class);
     }

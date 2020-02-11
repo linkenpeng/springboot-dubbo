@@ -1,4 +1,4 @@
-package com.intecsec.blog.app.rocketmq;
+package com.intecsec.mall.rocketmq;
 
 import lombok.Getter;
 import lombok.Setter;

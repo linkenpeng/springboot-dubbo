@@ -16,6 +16,7 @@
 		<module>common</module>
 		<module>common-dubbo</module>
         <module>common-redis</module>
+        <module>common-rocketmq</module>
     </modules>
 
 	<packaging>pom</packaging>
@@ -87,6 +88,11 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>common-redis</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>common-rocketmq</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

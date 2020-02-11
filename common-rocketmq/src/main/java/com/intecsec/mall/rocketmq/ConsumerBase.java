@@ -1,4 +1,4 @@
-package com.intecsec.blog.app.rocketmq;
+package com.intecsec.mall.rocketmq;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
