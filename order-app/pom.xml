@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>blog-app</artifactId>
+    <artifactId>order-app</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>blog-client</artifactId>
+            <artifactId>order-client</artifactId>
         </dependency>
 
         <!-- rpc框架dubbo -->
@@ -60,6 +60,5 @@
 
         </plugins>
     </build>
-
 
 </project>

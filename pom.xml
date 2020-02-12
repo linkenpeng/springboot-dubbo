@@ -17,7 +17,20 @@
 		<module>common-dubbo</module>
         <module>common-redis</module>
         <module>common-rocketmq</module>
-    </modules>
+        <module>common-mysql</module>
+		<module>user-app</module>
+		<module>user-client</module>
+		<module>user-common</module>
+		<module>item-app</module>
+		<module>item-common</module>
+		<module>item-client</module>
+		<module>checkout-client</module>
+		<module>checkout-common</module>
+		<module>order-app</module>
+		<module>order-client</module>
+		<module>order-common</module>
+		<module>checkout-app</module>
+	</modules>
 
 	<packaging>pom</packaging>
 
@@ -66,6 +79,52 @@
 				<artifactId>blog-client</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>checkout-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>checkout-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>item-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>item-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>order-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>order-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>user-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>user-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>common</artifactId>
@@ -84,7 +143,12 @@
 				<version>${project.version}</version>
 				<type>pom</type>
 			</dependency>
-
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>common-mysql</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>common-redis</artifactId>
@@ -108,25 +172,6 @@
 				<version>${dubbo.dependency.zookeeper.version}</version>
 				<type>pom</type>
 			</dependency>
-
-			<!--
-			采用启动器来启动dubbo了
-			<dependency>
-				<groupId>org.apache.dubbo</groupId>
-				<artifactId>dubbo</artifactId>
-				<version>${dubbo.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.curator</groupId>
-				<artifactId>curator-recipes</artifactId>
-				<version>${curator.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.101tec</groupId>
-				<artifactId>zkclient</artifactId>
-				<version>${zk.version}</version>
-			</dependency>
-			-->
 
 			<dependency>
 				<groupId>mysql</groupId>
@@ -168,15 +213,6 @@
 				<groupId>com.google.code.gson</groupId>
 				<artifactId>gson</artifactId>
 				<version>${gson.version}</version>
-			</dependency>
-
-
-
-			<!-- alibaba的druid数据库连接池 -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>${druid.version}</version>
 			</dependency>
 
 			<dependency>

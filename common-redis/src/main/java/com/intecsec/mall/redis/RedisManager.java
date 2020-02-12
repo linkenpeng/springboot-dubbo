@@ -1,9 +1,9 @@
 package com.intecsec.mall.redis;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,10 +16,8 @@ import java.util.concurrent.TimeUnit;
  **/
 public class RedisManager {
 
-    @Resource
+    @Autowired
     private RedisTemplate<String, Object> redisTemplate;
-
-    // =============================common============================
 
     /**
      * 指定缓存失效时间
