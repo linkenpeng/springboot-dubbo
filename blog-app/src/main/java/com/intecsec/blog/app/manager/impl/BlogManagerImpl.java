@@ -7,7 +7,7 @@ import com.intecsec.blog.app.mq.consumer.BlogMqTopicTag;
 import com.intecsec.blog.common.dto.BlogDTO;
 import com.intecsec.mall.common.utils.DOUtils;
 import com.intecsec.mall.common.utils.JsonUtils;
-import com.intecsec.mall.redis.RedisUtil;
+import com.intecsec.mall.redis.RedisManager;
 import com.intecsec.mall.rocketmq.RocketMqProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class BlogManagerImpl implements BlogManager {
     private BlogMapper blogMapper;
 
     @Resource
-    private RedisUtil redisUtil;
+    private RedisManager redisManager;
 
     @Autowired
     private RocketMqProducer mqProducer;
@@ -59,16 +59,16 @@ public class BlogManagerImpl implements BlogManager {
 
         Blog blog = null;
         try {
-            blog = (Blog) redisUtil.get(cacheKey);
+            blog = (Blog) redisManager.get(cacheKey);
             log.info("get blog from cache key:{}, value:{}", cacheKey, JsonUtils.toJson(blog));
         } catch (Exception e) {
-            redisUtil.del(cacheKey);
+            redisManager.del(cacheKey);
         }
 
         if(blog == null) {
             blog = blogMapper.selectByPrimaryKey(id);
             log.info("set blog cache: {}", JsonUtils.toJson(blog));
-            redisUtil.set(cacheKey, blog, 600);
+            redisManager.set(cacheKey, blog, 600);
         }
 
         mqProducer.sendMq(BlogMqTopicTag.BLOG_INFO_MQ, String.valueOf(blog.getId()), JsonUtils.toJson(blog));

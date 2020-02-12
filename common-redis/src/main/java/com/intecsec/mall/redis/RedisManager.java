@@ -1,9 +1,6 @@
 package com.intecsec.mall.redis;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
@@ -17,10 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @author: peter.peng
  * @create: 2018-09-20 17:50
  **/
-@Component
-public class RedisUtil {
-
-    private final static Logger logger = LoggerFactory.getLogger(RedisUtil.class);
+public class RedisManager {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
@@ -128,7 +122,6 @@ public class RedisUtil {
     public boolean set(String key, Object value, long time) {
 
         try {
-            logger.info("set key:{}, time:{}", key, time);
             if (time > 0) {
                 redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
             } else {
