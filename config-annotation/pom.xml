@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.spring.configuration</groupId>
-    <artifactId>spring-configuration</artifactId>
+    <artifactId>config-annotation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-configuration</name>
+    <name>config-annotation</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
