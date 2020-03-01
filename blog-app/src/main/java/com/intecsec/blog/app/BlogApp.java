@@ -3,10 +3,12 @@ package com.intecsec.blog.app;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @description:

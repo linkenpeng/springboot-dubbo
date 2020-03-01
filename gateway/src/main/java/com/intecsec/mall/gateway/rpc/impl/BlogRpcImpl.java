@@ -20,12 +20,12 @@ public class BlogRpcImpl implements BlogRpc {
 
     @Override
     public int addBlog(BlogDTO blogDTO) {
-        return 0;
+        return blogClient.addBlog(blogDTO);
     }
 
     @Override
     public List<BlogDTO> getBlogList(int pageNum, int pageSize) {
-        return null;
+        return blogClient.getBlogList(pageNum, pageSize);
     }
 
     @Override

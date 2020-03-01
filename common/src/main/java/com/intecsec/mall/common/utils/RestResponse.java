@@ -48,7 +48,11 @@ public class RestResponse {
         return toJsonStr(apiResponse);
     }
 
-    public static String fail(ResponseEnum responseEnum, String message){
+    public static String fail(ResponseEnum responseEnum) {
+        return fail(responseEnum, responseEnum.getMsg());
+    }
+
+    public static String fail(ResponseEnum responseEnum, String message) {
         ApiResponse apiResponse = new ApiResponse(responseEnum.getCode(), message);
         return toJsonStr(apiResponse);
     }
@@ -56,7 +60,7 @@ public class RestResponse {
     /**
      *  返回特定错误的json串
      */
-    public static String fail(int code, String message){
+    public static String fail(int code, String message) {
         ApiResponse apiResponse = new ApiResponse(code, message);
         return toJsonStr(apiResponse);
     }

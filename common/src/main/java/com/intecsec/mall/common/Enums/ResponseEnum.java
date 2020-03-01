@@ -8,6 +8,8 @@ package com.intecsec.mall.common.Enums;
 public enum ResponseEnum {
     REQUEST_SUCESS(10000, "请求处理成功"),
 
+    UNAUTHORIZED(40003, "签名验证失败"),
+
     ;
     private int code;
     private String msg;

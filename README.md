@@ -1,4 +1,4 @@
-#  Spring Boot Demo
+#  Spring Boot Dubbo Demo
 
 ```
 基于 Spring Boot 最新版的演示项目
@@ -14,10 +14,10 @@
 - Maven多模块
 - 整合Reponse统一输出，方便Controller层使用
 - 拆分多个系统blog, checkout, item, order, user
+- gateway接口签名
 
 ### Todo
 - 整合Shiro/Spring Security
-- gateway接口签名
 
 ### 各应用对应的端口
 ```
