@@ -9,8 +9,7 @@
 - 整合Mybatis, Mybatis Generator
 - 整合Dubbo
 - 整合Redis
-- 整合RocketMQ
-- 整合Sentinel
+- 整合RocketMq
 - Maven多模块
 - 整合Reponse统一输出，方便Controller层使用
 - 拆分多个系统blog, checkout, item, order, user
@@ -19,36 +18,16 @@
 ### Todo
 - 整合Shiro/Spring Security
 
+### Require Components
+- Zookeeper
+- Mysql
+- Redis
+- RocketMq
+
 ### 各应用对应的web端口
 
-```
-blog-app 
-web: 8083
-dubbo: 20803
-
-checkout-app
-web: 8084
-dubbo: 20804
-
-item-app
-web: 8085
-dubbo: 20805
-
-order-app
-web: 8086
-dubbo: 20806
-
-user-app
-web: 8087
-dubbo: 20807
-
-gateway
-web: 8090
-dubbo:
-```
-
 应用 | web端口 |  dubbo端口  
--|-|-
+-:|-:|-:
 blog-app | 8083 | 20803 |
 checkout-app | 8084 | 20804 |
 item-app | 8085 | 20805 |
