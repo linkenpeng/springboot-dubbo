@@ -28,7 +28,7 @@
 
     <build>
         <plugins>
-            <!-- mybatis generator 自动生成代码插件 -->
+            <!-- mybatis generator 自动生成代码插件 usage: mvn mybatis-generator:generate -e -X -->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
