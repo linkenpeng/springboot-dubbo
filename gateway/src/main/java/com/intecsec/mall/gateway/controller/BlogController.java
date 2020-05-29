@@ -3,7 +3,7 @@ package com.intecsec.mall.gateway.controller;
 import com.intecsec.blog.common.dto.BlogDTO;
 import com.intecsec.mall.common.utils.RestResponse;
 import com.intecsec.mall.common.utils.TraceUtil;
-import com.intecsec.mall.gateway.rpc.BlogRpc;
+import com.intecsec.mall.gateway.service.BlogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +19,10 @@ import java.util.Date;
 @Controller
 @RequestMapping("/blog")
 @Slf4j
-public class BlogController {
+public class BlogController extends BaseController {
 
     @Autowired
-    private BlogRpc blogRpc;
+    private BlogService blogService;
 
     @PostMapping("/add")
     public Object addBlog(BlogDTO blog) {
@@ -31,19 +31,19 @@ public class BlogController {
         blog.setContent(TraceUtil.currentTraceId() + "内容");
         blog.setCreateTime(new Date());
         blog.setUpdateTime(new Date());
-        return RestResponse.success(blogRpc.addBlog(blog));
+        return RestResponse.success(blogService.addBlog(blog));
     }
 
     @ResponseBody
     @GetMapping("/list")
     public Object getBlogList(@RequestParam(name = "pageNum", required = false, defaultValue = "1") int pageNum,
                               @RequestParam(name = "pageSize", required = false, defaultValue = "20") int pageSize) {
-        return RestResponse.success(blogRpc.getBlogList(pageNum, pageSize));
+        return RestResponse.success(blogService.getBlogList(pageNum, pageSize));
     }
 
     @ResponseBody
-    @GetMapping("/info")
-    public Object getBlog(@RequestParam(name = "id", defaultValue = "1") int id) {
-        return RestResponse.success(blogRpc.getOne(id));
+    @GetMapping("/{blogId}")
+    public Object getBlog(@PathVariable int blogId) {
+        return RestResponse.success(blogService.getOne(blogId));
     }
 }

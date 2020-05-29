@@ -1,5 +1,6 @@
 package com.intecsec.mall.user;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +11,7 @@ import org.springframework.context.ApplicationContext;
  * @create: 2020-02-12 21:00
  **/
 @SpringBootApplication
+@EnableDubbo
 public class UserApp {
 
     public static void main(String[] args) {

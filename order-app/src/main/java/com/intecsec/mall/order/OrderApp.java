@@ -1,5 +1,6 @@
 package com.intecsec.mall.order;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +11,7 @@ import org.springframework.context.ApplicationContext;
  * @create: 2020-02-12 21:03
  **/
 @SpringBootApplication
+@EnableDubbo
 public class OrderApp {
 
     public static void main(String[] args) {
