@@ -2,6 +2,7 @@ package com.intecsec.mall.gateway.controller;
 
 import com.intecsec.blog.common.dto.BlogDTO;
 import com.intecsec.mall.common.utils.RestResponse;
+import com.intecsec.mall.common.utils.SpringUtil;
 import com.intecsec.mall.common.utils.TraceUtil;
 import com.intecsec.mall.gateway.service.BlogService;
 import lombok.extern.slf4j.Slf4j;
@@ -44,6 +45,7 @@ public class BlogController extends BaseController {
     @ResponseBody
     @GetMapping("/{blogId}")
     public Object getBlog(@PathVariable int blogId) {
+        log.info("bean:{}", (Object) SpringUtil.getBeans("BlogManagerImpl"));
         return RestResponse.success(blogService.getOne(blogId));
     }
 }

@@ -21,7 +21,7 @@ import java.util.List;
  * @author: peter.peng
  * @create: 2018-08-23 16:49
  **/
-@Service()
+@Service
 @Slf4j
 public class BlogManagerImpl implements BlogManager {
 

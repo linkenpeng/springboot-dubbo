@@ -12,7 +12,7 @@
     </appender>
 
     <!-- 按照每天生成日志文件 -->
-    <appender name="appAppender"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="appAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/root.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
