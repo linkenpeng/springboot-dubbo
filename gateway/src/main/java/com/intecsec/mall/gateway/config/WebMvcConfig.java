@@ -19,7 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        if(!"local".equals(env)) {
+        if("online".equals(env)) {
             registry.addInterceptor(new PermissionInterceptor());
         }
     }

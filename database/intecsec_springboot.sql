@@ -63,10 +63,10 @@ COMMIT;
 DROP TABLE IF EXISTS `mall_item`;
 CREATE TABLE `mall_item` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `item_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `item_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' ,
   `item_price` bigint NOT NULL DEFAULT '0',
-  `item_image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `item_desc` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `item_image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' ,
+  `item_desc` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' ,
   `gmt_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `delete_mark` tinyint NOT NULL DEFAULT '0',
@@ -86,7 +86,7 @@ COMMIT;
 DROP TABLE IF EXISTS `mall_order`;
 CREATE TABLE `mall_order` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `order_sn` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
+  `order_sn` varchar(64) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' ,
   `user_id` bigint NOT NULL,
   `order_status` mediumint NOT NULL,
   `price_amount` bigint NOT NULL DEFAULT '0',
@@ -126,7 +126,7 @@ CREATE TABLE `mall_order_consignee` (
   `gmt_update` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `delete_mark` tinyint DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 --  Records of `mall_order_consignee`
@@ -145,7 +145,7 @@ CREATE TABLE `mall_order_item` (
   `item_id` bigint NOT NULL DEFAULT '0',
   `item_price` bigint NOT NULL DEFAULT '0',
   `item_num` int NOT NULL DEFAULT '0',
-  `item_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
+  `item_name` varchar(128) NOT NULL DEFAULT '',
   `coupon` decimal(12,6) DEFAULT '0.000000',
   `coupon_amout` bigint DEFAULT '0',
   `point_money` decimal(12,6) DEFAULT '0.000000',
@@ -205,7 +205,7 @@ CREATE TABLE `mall_user_consignee` (
   `gmt_update` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `delete_mark` tinyint DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 --  Records of `mall_user_consignee`
