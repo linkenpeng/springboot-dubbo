@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- <property name="LOG_HOME" value="/data/java/logs/springboot/blog" /> -->
-    <springProperty scope="context" name="LOG_HOME" source="log.file.dir"/>
+    <property name="LOG_HOME" value="/data/java/logs/intecsec/dubbo/checkout"/>
 
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
