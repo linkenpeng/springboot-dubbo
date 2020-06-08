@@ -51,15 +51,15 @@ public class UserManagerImpl implements UserManager {
     }
 
     private void idGen() {
-        String idName = "goms_unit_id";
+        String idName = "user_id";
         IdGen idGen = idGenMapper.getById(idName);
         idGenMapper.updateNextStart(idName, idGen.getNextStartId());
-
-        /*try {
+        // Just slow the transaction
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             log.info("error", e);
-        }*/
+        }
     }
 
     @Override

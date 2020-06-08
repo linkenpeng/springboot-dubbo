@@ -49,4 +49,8 @@ java -jar gateway/target/gateway-1.0-SNAPSHOT.jar
 
 
 
-[微信公众号: intecsec](http://www.intecsec.com)
+### 微信公众号: 互联网技术的秘密 （intecsec）
+![公众号](http://www.intecsec.com/wp-content/uploads/2020/06/intecsec_wechat.jpg)
+### [官方网站: www.intecsec.com](http://www.intecsec.com)
+### 个人微信号：sindoc
+欢迎交流~
