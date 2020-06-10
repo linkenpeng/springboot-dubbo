@@ -55,25 +55,6 @@ INSERT INTO `blog` VALUES ('20', 'one', 'content', '0', '2018-08-23 17:42:48', '
 INSERT INTO `blog` VALUES ('21', 'one', 'content', '0', '2018-08-23 17:42:48', '2018-08-23 17:42:48');
 
 -- ----------------------------
--- Table structure for id_gen
--- ----------------------------
-DROP TABLE IF EXISTS `id_gen`;
-CREATE TABLE `id_gen` (
-  `id_name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'ID名称，比如public_id；外部根据此名称来获取id',
-  `next_start_id` bigint(20) NOT NULL DEFAULT '1' COMMENT '当取ID时，获取到的起始ID',
-  `fetch_len` int(11) NOT NULL DEFAULT '100' COMMENT '每次取ID的长度，比如100，返回100个ID',
-  `id_desc` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注说明',
-  PRIMARY KEY (`id_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='ID生成表，所有数字ID由ID服务统一生成；注意：该表不允许并发操作，请使用统一的工具（加锁）来操作';
-
--- ----------------------------
--- Records of id_gen
--- ----------------------------
-INSERT INTO `id_gen` VALUES ('item_id', '1000', '1', 'ITEM_ID');
-INSERT INTO `id_gen` VALUES ('order_id', '1000', '1', 'ORDER ID');
-INSERT INTO `id_gen` VALUES ('user_id', '1000', '1', 'USER_ID');
-
--- ----------------------------
 -- Table structure for mall_item
 -- ----------------------------
 DROP TABLE IF EXISTS `mall_item`;

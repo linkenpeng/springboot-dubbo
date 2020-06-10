@@ -2,11 +2,9 @@ package com.intecsec.mall.user.manager.impl;
 
 import com.intecsec.mall.common.utils.DOUtils;
 import com.intecsec.mall.user.dto.UserDTO;
-import com.intecsec.mall.user.entity.IdGen;
 import com.intecsec.mall.user.entity.User;
 import com.intecsec.mall.user.entity.UserConsignee;
 import com.intecsec.mall.user.manager.UserManager;
-import com.intecsec.mall.user.mapper.IdGenMapper;
 import com.intecsec.mall.user.mapper.UserConsigneeMapper;
 import com.intecsec.mall.user.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -32,13 +30,8 @@ public class UserManagerImpl implements UserManager {
     @Autowired
     private UserConsigneeMapper userConsigneeMapper;
 
-    @Autowired
-    private IdGenMapper idGenMapper;
-
     @Override
     public UserDTO getUser(Long userId) {
-        idGen();
-
         User user = userMapper.selectByPrimaryKey(userId);
         return DOUtils.copy(user, UserDTO.class);
     }
@@ -50,22 +43,10 @@ public class UserManagerImpl implements UserManager {
         return DOUtils.copyList(userList, UserDTO.class);
     }
 
-    private void idGen() {
-        String idName = "user_id";
-        IdGen idGen = idGenMapper.getById(idName);
-        idGenMapper.updateNextStart(idName, idGen.getNextStartId());
-        // Just slow the transaction
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            log.info("error", e);
-        }
-    }
 
     @Override
     @Transactional(rollbackFor = {Exception.class})
     public int update(Long userId, UserDTO userDTO) {
-        idGen();
 
         User user = DOUtils.copy(userDTO, User.class);
         user.setId(userId);
