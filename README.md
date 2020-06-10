@@ -1,7 +1,7 @@
-#  Spring Boot Dubbo Demo
+#  电商微服务系统骨架 Dubbo版本
 
 ```
-基于 Spring Boot 最新版的演示项目
+基于 Spring Boot(2.2.2.RELEASE) Dubbo(2.7.5)搭建的电商微服务系统骨架
 ```
 
 #### Done
@@ -18,11 +18,12 @@
 ### Todo
 - 整合Shiro/Spring Security
 
-### Require Components
-- Zookeeper
-- Mysql
+### Requirements
+- Java8+
+- Mysql5.6+
 - Redis
 - RocketMq
+- Zookeeper
 
 ### Application Port
 
