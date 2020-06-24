@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2020-06-08 14:22:23
+Date: 2020-06-24 15:33:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,6 +55,25 @@ INSERT INTO `blog` VALUES ('20', 'one', 'content', '0', '2018-08-23 17:42:48', '
 INSERT INTO `blog` VALUES ('21', 'one', 'content', '0', '2018-08-23 17:42:48', '2018-08-23 17:42:48');
 
 -- ----------------------------
+-- Table structure for id_gen
+-- ----------------------------
+DROP TABLE IF EXISTS `id_gen`;
+CREATE TABLE `id_gen` (
+  `id_name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'ID名称，比如public_id；外部根据此名称来获取id',
+  `next_start_id` bigint(20) NOT NULL DEFAULT '1' COMMENT '当取ID时，获取到的起始ID',
+  `fetch_len` int(11) NOT NULL DEFAULT '100' COMMENT '每次取ID的长度，比如100，返回100个ID',
+  `id_desc` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注说明',
+  PRIMARY KEY (`id_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='ID生成表，所有数字ID由ID服务统一生成；注意：该表不允许并发操作，请使用统一的工具（加锁）来操作';
+
+-- ----------------------------
+-- Records of id_gen
+-- ----------------------------
+INSERT INTO `id_gen` VALUES ('item_id', '1000', '1', 'ITEM_ID');
+INSERT INTO `id_gen` VALUES ('order_id', '1000', '1', 'ORDER ID');
+INSERT INTO `id_gen` VALUES ('user_id', '1020', '1', 'USER_ID');
+
+-- ----------------------------
 -- Table structure for mall_item
 -- ----------------------------
 DROP TABLE IF EXISTS `mall_item`;
@@ -95,7 +114,7 @@ CREATE TABLE `mall_order` (
   `gmt_update` datetime DEFAULT CURRENT_TIMESTAMP,
   `delete_mark` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mall_order
@@ -123,7 +142,7 @@ CREATE TABLE `mall_order_consignee` (
   `gmt_update` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `delete_mark` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mall_order_consignee
@@ -139,34 +158,32 @@ INSERT INTO `mall_order_consignee` VALUES ('5', '1', '1', '广东省', '广州�
 DROP TABLE IF EXISTS `mall_order_item`;
 CREATE TABLE `mall_order_item` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `order_id` bigint(20) NOT NULL DEFAULT '0',
-  `item_id` bigint(20) NOT NULL DEFAULT '0',
-  `item_price` bigint(20) NOT NULL DEFAULT '0',
-  `item_num` int(11) NOT NULL DEFAULT '0',
-  `item_name` varchar(128) NOT NULL DEFAULT '',
-  `coupon` decimal(12,6) DEFAULT '0.000000',
-  `coupon_amout` bigint(20) DEFAULT '0',
-  `point_money` decimal(12,6) DEFAULT '0.000000',
-  `point_amount` int(11) DEFAULT '0',
-  `discount` decimal(12,6) DEFAULT '0.000000',
-  `discount_amount` bigint(20) DEFAULT '0',
-  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_update` datetime DEFAULT CURRENT_TIMESTAMP,
-  `delete_mark` tinyint(4) DEFAULT '0',
+  `order_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '订单id',
+  `item_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '商品id',
+  `item_price` bigint(20) NOT NULL DEFAULT '0' COMMENT '商品价格',
+  `item_num` int(11) NOT NULL DEFAULT '0' COMMENT '购买数量',
+  `item_name` varchar(128) NOT NULL DEFAULT '' COMMENT '商品名称',
+  `actual_price` bigint(20) NOT NULL DEFAULT '0' COMMENT '实付价格，商品价格-优惠价格',
+  `coupon_amount` bigint(20) NOT NULL DEFAULT '0' COMMENT '优惠券优惠金额(分)',
+  `point_amount` bigint(20) NOT NULL DEFAULT '0' COMMENT '积分优惠金额(分)',
+  `discount_amount` bigint(20) NOT NULL DEFAULT '0' COMMENT '总优惠金额(分)',
+  `gmt_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `gmt_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `delete_mark` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mall_order_item
 -- ----------------------------
-INSERT INTO `mall_order_item` VALUES ('1', '1', '1', '2600', '2', '沐浴露', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-04-27 12:15:26', '2020-04-27 12:15:26', '0');
-INSERT INTO `mall_order_item` VALUES ('2', '1', '2', '4300', '3', '洗发水', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-04-27 12:15:26', '2020-04-27 12:15:26', '0');
-INSERT INTO `mall_order_item` VALUES ('3', '1', '1', '2600', '2', '沐浴露', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-04-27 16:31:23', '2020-04-27 16:31:23', '0');
-INSERT INTO `mall_order_item` VALUES ('4', '1', '2', '4300', '3', '洗发水', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-04-27 16:31:23', '2020-04-27 16:31:23', '0');
-INSERT INTO `mall_order_item` VALUES ('5', '1', '1', '2600', '2', '沐浴露', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-05-27 14:53:47', '2020-05-27 14:53:47', '0');
-INSERT INTO `mall_order_item` VALUES ('6', '1', '2', '4300', '3', '洗发水', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-05-27 14:53:47', '2020-05-27 14:53:47', '0');
-INSERT INTO `mall_order_item` VALUES ('7', '1', '1', '2600', '2', '沐浴露', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-05-29 16:37:26', '2020-05-29 16:37:26', '0');
-INSERT INTO `mall_order_item` VALUES ('8', '1', '2', '4300', '3', '洗发水', '0.000000', '0', '0.000000', '0', '0.000000', '0', '2020-05-29 16:37:26', '2020-05-29 16:37:26', '0');
+INSERT INTO `mall_order_item` VALUES ('1', '2', '1', '2600', '2', '沐浴露', '0', '0', '0', '0', '2020-04-27 12:15:26', '2020-06-24 14:31:05', '0');
+INSERT INTO `mall_order_item` VALUES ('2', '2', '2', '4300', '3', '洗发水', '0', '0', '0', '0', '2020-04-27 12:15:26', '2020-06-24 14:31:06', '0');
+INSERT INTO `mall_order_item` VALUES ('3', '3', '1', '2600', '2', '沐浴露', '0', '0', '0', '0', '2020-04-27 16:31:23', '2020-06-24 14:40:21', '0');
+INSERT INTO `mall_order_item` VALUES ('4', '3', '2', '4300', '3', '洗发水', '0', '0', '0', '0', '2020-04-27 16:31:23', '2020-06-24 14:40:23', '0');
+INSERT INTO `mall_order_item` VALUES ('5', '4', '1', '2600', '2', '沐浴露', '0', '0', '0', '0', '2020-05-27 14:53:47', '2020-06-24 14:40:24', '0');
+INSERT INTO `mall_order_item` VALUES ('6', '4', '2', '4300', '3', '洗发水', '0', '0', '0', '0', '2020-05-27 14:53:47', '2020-06-24 14:40:25', '0');
+INSERT INTO `mall_order_item` VALUES ('7', '5', '1', '2600', '2', '沐浴露', '0', '0', '0', '0', '2020-05-29 16:37:26', '2020-06-24 14:40:26', '0');
+INSERT INTO `mall_order_item` VALUES ('8', '5', '2', '4300', '3', '洗发水', '0', '0', '0', '0', '2020-05-29 16:37:26', '2020-06-24 14:40:28', '0');
 
 -- ----------------------------
 -- Table structure for mall_user

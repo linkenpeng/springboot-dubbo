@@ -2,7 +2,15 @@
 
 ```
 基于 Spring Boot(2.2.2.RELEASE) Dubbo(2.7.5)搭建的电商微服务系统骨架
+可无限扩展，高并发，系统解耦
 ```
+
+### Requirements
+- Java8+
+- Mysql5.6+
+- Redis
+- RocketMq
+- Zookeeper
 
 #### Done
 - 集成Spring Boot
@@ -11,19 +19,13 @@
 - 整合Redis
 - 整合RocketMq
 - Maven多模块
-- 整合Reponse统一输出，方便Controller层使用
+- 整合Response统一输出，方便Controller层使用
 - 拆分多个系统blog, checkout, item, order, user
 - gateway接口签名
 
 ### Todo
 - 整合Shiro/Spring Security
-
-### Requirements
-- Java8+
-- Mysql5.6+
-- Redis
-- RocketMq
-- Zookeeper
+- 登录模块/OAuth
 
 ### Application Port
 
@@ -48,7 +50,33 @@ java -jar gateway/target/gateway-1.0-SNAPSHOT.jar
 
 ```
 
+### Samples
+```
+GET request: 
+http://localhost:8090/order/get/2
 
+POST request: 
+http://localhost:8090/order/add
+
+body:
+{
+    "consignee_id":1,
+    "order_item_list":[
+        {
+            "item_id":1,
+            "number":1
+        },
+        {
+            "item_id":2,
+            "number":2
+        }
+    ]
+}
+
+```
+
+# License
+The project is licensed under the BSD license.
 
 ### 微信公众号: 互联网技术的秘密 （intecsec）
 ![公众号](http://www.intecsec.com/wp-content/uploads/2020/06/intecsec_wechat.jpg)

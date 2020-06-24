@@ -26,6 +26,7 @@ public class OrderController extends BaseController {
 
     @PostMapping(value = "/add")
     public Object addOrder(@RequestBody @Valid AddOrderDTO addOrderDTO) {
+        addOrderDTO.setUser_id(userId);
         log.info("addOrderDTO:{}", JsonUtils.toJson(addOrderDTO));
         OrderDTO orderDTO = orderService.addOrder(addOrderDTO);
         return RestResponse.success(orderDTO);
@@ -39,8 +40,8 @@ public class OrderController extends BaseController {
     }
 
     @ResponseBody
-    @GetMapping("/get")
-    public Object getOrder(@RequestParam(name = "order_id", required = false, defaultValue = "1") long orderId) {
+    @GetMapping("/get/{orderId}")
+    public Object getOrder(@PathVariable Long orderId) {
         return RestResponse.success(orderService.getOrder(orderId));
     }
 
@@ -52,8 +53,8 @@ public class OrderController extends BaseController {
     }
 
     @ResponseBody
-    @GetMapping("/user/get")
-    public Object getUserOrder(@RequestParam(name = "order_id", required = false, defaultValue = "1") long orderId) {
+    @GetMapping("/user/get/{orderId}")
+    public Object getUserOrder(@PathVariable Long orderId) {
         return RestResponse.success(orderService.getUserOrder(userId, orderId));
     }
 }
