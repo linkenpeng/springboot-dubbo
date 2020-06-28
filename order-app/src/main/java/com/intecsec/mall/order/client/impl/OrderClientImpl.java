@@ -87,9 +87,15 @@ public class OrderClientImpl implements OrderClient {
             orderItemDTOS.add(orderItemDTO);
         }
 
-        orderDTO.setOrderConsigneeDTO(orderConsigneeDTO);
+        orderDTO.setOrderConsignee(orderConsigneeDTO);
         orderDTO.setOrderItemList(orderItemDTOS);
         orderDTO.setPriceAmount(orderPriceAmount);
+        orderDTO.setDeleteMark((byte)0);
+        orderDTO.setCouponAmount(0L);
+        orderDTO.setPointAmount(0L);
+        orderDTO.setDiscountAmount(0L);
+        orderDTO.setDeliveryFee(0L);
+        orderDTO.setPayAmount(orderDTO.getPriceAmount() - orderDTO.getDiscountAmount() + orderDTO.getDeliveryFee());
 
         return orderManager.addOrder(orderDTO);
     }

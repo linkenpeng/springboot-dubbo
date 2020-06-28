@@ -12,7 +12,6 @@
 		<module>blog-common</module>
 		<module>blog-client</module>
 		<module>gateway</module>
-		<module>config-annotation</module>
 		<module>common</module>
 		<module>common-dubbo</module>
         <module>common-redis</module>

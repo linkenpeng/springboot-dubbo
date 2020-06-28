@@ -12,11 +12,12 @@ import com.intecsec.mall.order.mapper.OrderConsigneeMapper;
 import com.intecsec.mall.order.mapper.OrderItemMapper;
 import com.intecsec.mall.order.mapper.OrderMapper;
 import com.intecsec.mall.order.util.OrderUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,15 +29,16 @@ import java.util.Map;
  * @create: 2020-04-04 22:28
  **/
 @Component
+@Slf4j
 public class OrderManagerImpl implements OrderManager {
 
-    @Autowired
+    @Resource
     private OrderItemMapper orderItemMapper;
 
-    @Autowired
+    @Resource
     private OrderMapper orderMapper;
 
-    @Autowired
+    @Resource
     private OrderConsigneeMapper orderConsigneeMapper;
 
     @Override
@@ -77,10 +79,12 @@ public class OrderManagerImpl implements OrderManager {
         Order order = DOUtils.copy(orderDTO, Order.class);
         order.setOrderStatus(OrderStatusEnum.UN_PAID.getOrderStatus());
 
-        OrderConsignee orderConsignee = DOUtils.copy(orderDTO.getOrderConsigneeDTO(), OrderConsignee.class);
+        OrderConsignee orderConsignee = DOUtils.copy(orderDTO.getOrderConsignee(), OrderConsignee.class);
 
         order.setOrderSn(OrderUtil.genOrderSn());
-        long orderId = orderMapper.insertSelective(order);
+        long row = orderMapper.insertSelective(order);
+        log.info("insert rows:{}", row);
+        long orderId = order.getId();
 
         orderConsignee.setOrderId(orderId);
         orderConsigneeMapper.insertSelective(orderConsignee);
@@ -90,6 +94,9 @@ public class OrderManagerImpl implements OrderManager {
             orderItem.setOrderId(orderId);
             orderItemMapper.insertSelective(orderItem);
         }
+
+        orderDTO.setId(orderId);
+        orderDTO.setOrderSn(order.getOrderSn());
 
         return orderDTO;
     }
