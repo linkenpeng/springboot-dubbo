@@ -48,7 +48,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<mysql.version>5.1.44</mysql.version>
+		<mysql.version>8.0.16</mysql.version>
 		<mysql.connector.java.version>8.0.19</mysql.connector.java.version>
 		<dubbo.spring.boot.version>2.7.5</dubbo.spring.boot.version>
 		<dubbo.dependency.zookeeper.version>2.7.5</dubbo.dependency.zookeeper.version>
