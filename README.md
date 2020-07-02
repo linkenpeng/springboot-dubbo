@@ -1,9 +1,16 @@
-#  电商微服务系统骨架 Dubbo版本
+```
+在这个开源的时代，贡献一点点源代码，也许一名有点点追求的程序员必经的一个阶段，
+本项目主要是想帮助那些初创电商项目，做一些基础的架构演示，
+只需要设计好数据库，生成mapper层代码后，做少量的修改，就可以在上面进行各种逻辑开发。
+```
 
-```
-基于 Spring Boot(2.2.2.RELEASE) Dubbo(2.7.5)搭建的电商微服务系统骨架
-可无限扩展，高并发，系统解耦
-```
+### 本开源项目的特点
+1. 简单
+1. 支持高并发
+1. 支持低耦合
+1. 可无限扩展
+1. 开箱即用
+
 
 ### Requirements
 - Java8+
@@ -13,9 +20,9 @@
 - Zookeeper
 
 #### Done
-- 集成Spring Boot
+- 集成Spring Boot(2.2.2.RELEASE)
 - 整合Mybatis, Mybatis Generator
-- 整合Dubbo
+- 整合Dubbo(2.7.5)
 - 整合Redis
 - 整合RocketMq
 - Maven多模块
@@ -24,7 +31,8 @@
 - GateWay接口签名
 
 ### Todo
-- 登录模块/OAuth
+- 登录模块(OAuth2.0, JWT等)
+- 配置中心（Diamond/Apollo)
 
 ### Application Port
 
