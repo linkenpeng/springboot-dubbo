@@ -21,7 +21,7 @@
 - Maven多模块
 - 整合Response统一输出，方便Controller层使用
 - 拆分多个系统blog, checkout, item, order, user
-- gateway接口签名
+- GateWay接口签名
 
 ### Todo
 - 登录模块/OAuth
@@ -52,7 +52,7 @@ java -jar gateway/target/gateway-1.0-SNAPSHOT.jar
 ### Samples
 ```
 GET request: 
-http://localhost:8090/order/get/2
+http://localhost:8090/order/get/15
 
 POST request: 
 http://localhost:8090/order/add

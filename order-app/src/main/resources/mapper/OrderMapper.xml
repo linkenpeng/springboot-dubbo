@@ -64,10 +64,10 @@
     values (#{orderSn,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{orderStatus,jdbcType=INTEGER}, 
       #{priceAmount,jdbcType=BIGINT}, #{discountAmount,jdbcType=BIGINT}, #{couponAmount,jdbcType=BIGINT}, 
       #{pointAmount,jdbcType=BIGINT}, #{deliveryFee,jdbcType=BIGINT}, #{payAmount,jdbcType=BIGINT}, 
-      #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtUpdate,jdbcType=TIMESTAMP}, #{deleteMark,jdbcType=TINYINT}
+      now(), now(), #{deleteMark,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.intecsec.mall.order.entity.Order">
+  <insert id="insertSelective" parameterType="com.intecsec.mall.order.entity.Order" useGeneratedKeys="true" keyProperty="id">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>

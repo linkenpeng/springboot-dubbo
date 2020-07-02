@@ -44,5 +44,5 @@ public class OrderDTO implements Serializable {
 
     private List<OrderItemDTO> orderItemList;
 
-    private OrderConsigneeDTO orderConsigneeDTO;
+    private OrderConsigneeDTO orderConsignee;
 }
