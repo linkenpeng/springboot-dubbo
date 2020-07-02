@@ -77,7 +77,12 @@ body:
 # License
 The project is licensed under the BSD license.
 
-### 微信公众号: 互联网技术的秘密 （intecsec）
+# 项目地址
+[https://github.com/linkenpeng/springboot-dubbo](https://github.com/linkenpeng/springboot-dubbo)
+
+欢迎star，欢迎fork，欢迎合作
+
+### 官方微信公众号: 互联网技术的秘密 （intecsec）
 ![公众号](http://www.intecsec.com/wp-content/uploads/2020/06/intecsec_wechat.jpg)
 ### [官方网站: www.intecsec.com](http://www.intecsec.com)
 ### 个人微信号：sindoc
