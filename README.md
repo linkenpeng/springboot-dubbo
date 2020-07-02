@@ -46,6 +46,9 @@ user-app | 8087 | 20807 |
 gateway | 8090 | - |
 
 ### Run Application
+1. 新建数据库：intecsec_springboot
+2. 导入database目录中的intecsec_springboot.sql到数据库
+3. maven打包，然后执行jar包
 ``` shell
 mvn clean install
 
