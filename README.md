@@ -24,7 +24,6 @@
 - gateway接口签名
 
 ### Todo
-- 整合Shiro/Spring Security
 - 登录模块/OAuth
 
 ### Application Port
