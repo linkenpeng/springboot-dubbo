@@ -50,8 +50,8 @@
 		<java.version>1.8</java.version>
 		<mysql.version>5.1.44</mysql.version>
 		<mysql.connector.java.version>8.0.19</mysql.connector.java.version>
-		<dubbo.spring.boot.version>2.7.5</dubbo.spring.boot.version>
-		<dubbo.dependency.zookeeper.version>2.7.5</dubbo.dependency.zookeeper.version>
+		<dubbo.spring.boot.version>2.7.8</dubbo.spring.boot.version>
+		<dubbo.dependency.zookeeper.version>2.7.8</dubbo.dependency.zookeeper.version>
 		<mybatis.spring.boot.starter.version>2.1.1</mybatis.spring.boot.starter.version>
 		<spring.boot.starter.jdbc.version>2.2.2.RELEASE</spring.boot.starter.jdbc.version>
 		<spring.boot.starter.version>2.2.2.RELEASE</spring.boot.starter.version>
