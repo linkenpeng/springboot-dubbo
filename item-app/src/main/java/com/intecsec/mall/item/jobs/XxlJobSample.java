@@ -23,6 +23,7 @@ public class XxlJobSample {
 	public ReturnT<String> demoJobHandler3(String param) throws Exception {
 		XxlJobLogger.log("XXL-JOB, Hello World.");
 		logger.info("XXL-JOB, Hello World.");
+		System.out.println("XXL-JOB, Hello World.");
 		return ReturnT.SUCCESS;
 	}
 }
