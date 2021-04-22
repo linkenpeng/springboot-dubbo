@@ -4,7 +4,7 @@ import com.intecsec.mall.gateway.service.OrderService;
 import com.intecsec.mall.order.AddOrderDTO;
 import com.intecsec.mall.order.OrderClient;
 import com.intecsec.mall.order.OrderDTO;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private OrderClient orderClient;
 
     @Override

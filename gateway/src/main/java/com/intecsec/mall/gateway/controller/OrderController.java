@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 
 /**
  * @description:
@@ -25,7 +24,7 @@ public class OrderController extends BaseController {
     private OrderService orderService;
 
     @PostMapping(value = "/add")
-    public Object addOrder(@RequestBody @Valid AddOrderDTO addOrderDTO) {
+    public Object addOrder(@RequestBody AddOrderDTO addOrderDTO) {
         addOrderDTO.setUser_id(userId);
         log.info("addOrderDTO:{}", JsonUtils.toJson(addOrderDTO));
         OrderDTO orderDTO = orderService.addOrder(addOrderDTO);

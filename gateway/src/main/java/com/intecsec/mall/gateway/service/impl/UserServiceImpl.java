@@ -4,7 +4,7 @@ import com.intecsec.mall.gateway.service.UserService;
 import com.intecsec.mall.user.UserClient;
 import com.intecsec.mall.user.dto.UserConsigneeDTO;
 import com.intecsec.mall.user.dto.UserDTO;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private UserClient userClient;
 
     @Override

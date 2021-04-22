@@ -3,7 +3,7 @@ package com.intecsec.mall.order.service.impl;
 import com.intecsec.mall.item.ItemClient;
 import com.intecsec.mall.item.ItemDTO;
 import com.intecsec.mall.order.service.ItemService;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  **/
 @Service
 public class ItemServiceImpl implements ItemService {
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private ItemClient itemClient;
 
     @Override

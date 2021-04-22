@@ -3,7 +3,7 @@ package com.intecsec.mall.gateway.service.impl;
 import com.intecsec.blog.client.BlogClient;
 import com.intecsec.blog.common.dto.BlogDTO;
 import com.intecsec.mall.gateway.service.BlogService;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class BlogServiceImpl implements BlogService {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private BlogClient blogClient;
 
     @Override
