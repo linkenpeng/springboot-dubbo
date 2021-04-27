@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>checkout-common</artifactId>
+    <artifactId>market-client</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>checkout-common</artifactId>
         </dependency>
     </dependencies>
 

@@ -3,7 +3,7 @@ package com.intecsec.blog.client.impl;
 import com.intecsec.blog.client.BlogClient;
 import com.intecsec.blog.common.dto.BlogDTO;
 import com.intecsec.blog.manager.BlogManager;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +15,9 @@ import java.util.List;
  * @create: 2018-10-26 11:50
  **/
 @Component
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class BlogClientImpl implements BlogClient {
+
     @Autowired
     private BlogManager blogManager;
 

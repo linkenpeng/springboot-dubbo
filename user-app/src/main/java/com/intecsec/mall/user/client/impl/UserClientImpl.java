@@ -5,7 +5,7 @@ import com.intecsec.mall.user.dto.UserConsigneeDTO;
 import com.intecsec.mall.user.dto.UserDTO;
 import com.intecsec.mall.user.manager.UserConsigneeManager;
 import com.intecsec.mall.user.manager.UserManager;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @create: 2020-05-28 18:54
  **/
 @Component
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class UserClientImpl implements UserClient {
 
     @Autowired

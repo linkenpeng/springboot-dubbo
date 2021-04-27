@@ -8,7 +8,7 @@ import com.intecsec.mall.order.service.ItemService;
 import com.intecsec.mall.order.service.UserService;
 import com.intecsec.mall.user.dto.UserConsigneeDTO;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,7 @@ import java.util.Map;
  * @create: 2020-05-28 19:02
  **/
 @Component
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class OrderClientImpl implements OrderClient {
 
     @Autowired

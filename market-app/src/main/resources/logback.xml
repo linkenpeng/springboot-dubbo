@@ -30,11 +30,11 @@
     </appender>
 
     <!-- myibatis log configure -->
-    <logger name="com.intecsec.checkout.mapper" level="DEBUG" additivity="false">
+    <logger name="com.intecsec.market.mapper" level="DEBUG" additivity="false">
         <appender-ref ref="appAppender" />
     </logger>
 
-    <logger name="com.intecsec.checkout" level="INFO" additivity="false">
+    <logger name="com.intecsec.market" level="INFO" additivity="false">
         <appender-ref ref="appAppender" />
     </logger>
 

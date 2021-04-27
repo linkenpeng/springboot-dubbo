@@ -4,7 +4,7 @@ import com.intecsec.mall.item.ItemClient;
 import com.intecsec.mall.item.ItemDTO;
 import com.intecsec.mall.item.manager.ItemManager;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @create: 2020-05-28 18:44
  **/
 @Component
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class ItemClientImpl implements ItemClient {
 
     @Autowired

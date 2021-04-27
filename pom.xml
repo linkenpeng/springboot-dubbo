@@ -23,12 +23,12 @@
 		<module>item-app</module>
 		<module>item-common</module>
 		<module>item-client</module>
-		<module>checkout-client</module>
-		<module>checkout-common</module>
+		<module>market-client</module>
+		<module>market-common</module>
+		<module>market-app</module>
 		<module>order-app</module>
 		<module>order-client</module>
 		<module>order-common</module>
-		<module>checkout-app</module>
 		<module>mapper-generate</module>
 	</modules>
 
