@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>checkout-common</artifactId>
+            <artifactId>market-common</artifactId>
         </dependency>
     </dependencies>
 

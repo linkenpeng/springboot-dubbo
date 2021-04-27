@@ -23,8 +23,8 @@
 		<module>item-app</module>
 		<module>item-common</module>
 		<module>item-client</module>
-		<module>market-client</module>
 		<module>market-common</module>
+		<module>market-client</module>
 		<module>market-app</module>
 		<module>order-app</module>
 		<module>order-client</module>
@@ -85,12 +85,12 @@
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>checkout-common</artifactId>
+				<artifactId>market-common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>checkout-client</artifactId>
+				<artifactId>market-client</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
