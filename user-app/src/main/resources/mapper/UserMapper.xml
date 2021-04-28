@@ -5,14 +5,16 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
     <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
     <result column="gmt_update" jdbcType="TIMESTAMP" property="gmtUpdate" />
     <result column="delete_mark" jdbcType="TINYINT" property="deleteMark" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_name, password, nick_name, avatar, gmt_created, gmt_update, delete_mark
+    id, user_name, password, salt, nick_name, avatar, role, gmt_created, gmt_update, delete_mark
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -39,11 +41,11 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into mall_user (user_name, password, nick_name, 
-      avatar, gmt_created, gmt_update, 
+    insert into mall_user (user_name, password, salt, nick_name,
+      avatar, role, gmt_created, gmt_update,
       delete_mark)
-    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
-      #{avatar,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtUpdate,jdbcType=TIMESTAMP}, 
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR},
+      #{avatar,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtUpdate,jdbcType=TIMESTAMP},
       #{deleteMark,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.intecsec.mall.user.entity.User">
@@ -58,11 +60,17 @@
       <if test="password != null">
         password,
       </if>
+      <if test="salt != null">
+        salt,
+      </if>
       <if test="nickName != null">
         nick_name,
       </if>
       <if test="avatar != null">
         avatar,
+      </if>
+      <if test="role != null">
+        role,
       </if>
       <if test="gmtCreated != null">
         gmt_created,
@@ -81,11 +89,17 @@
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
       <if test="nickName != null">
         #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="avatar != null">
         #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
       </if>
       <if test="gmtCreated != null">
         #{gmtCreated,jdbcType=TIMESTAMP},
@@ -107,11 +121,17 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
       <if test="nickName != null">
         nick_name = #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="avatar != null">
         avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
       </if>
       <if test="gmtCreated != null">
         gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
@@ -129,8 +149,10 @@
     update mall_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
       nick_name = #{nickName,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP},
       delete_mark = #{deleteMark,jdbcType=TINYINT}

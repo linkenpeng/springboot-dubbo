@@ -21,9 +21,13 @@ public class UserDTO implements Serializable {
 
     private String password;
 
+    private String salt;
+
     private String nickName;
 
     private String avatar;
+
+    private String role;
 
     private Date gmtCreated;
 
