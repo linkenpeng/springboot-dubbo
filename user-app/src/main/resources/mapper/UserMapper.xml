@@ -24,6 +24,13 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
 
+  <select id="selectByUserName" parameterType="string" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mall_user
+    where user_name = #{userName,jdbcType=VARCHAR}
+  </select>
+
   <select id="getList" parameterType="map" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

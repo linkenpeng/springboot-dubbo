@@ -14,6 +14,8 @@ public interface UserClient {
 
     UserDTO getUser(Long userId);
 
+    UserDTO getUser(String userName);
+
     List<UserDTO> getUserList(int page, int pageSize);
 
     int update(Long userId, UserDTO userDTO);

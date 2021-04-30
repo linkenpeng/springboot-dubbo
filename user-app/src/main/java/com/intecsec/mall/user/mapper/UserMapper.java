@@ -16,6 +16,8 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Long id);
 
+    User selectByUserName(String userName);
+
     List<User> getList(@Param("offset") Integer offset, @Param("count") Integer count);
 
     int updateByPrimaryKeySelective(User record);

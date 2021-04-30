@@ -37,6 +37,12 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
+    public UserDTO getUser(String userName) {
+        User user = userMapper.selectByUserName(userName);
+        return DOUtils.copy(user, UserDTO.class);
+    }
+
+    @Override
     public List<UserDTO> getUserList(int page, int pageSize) {
         int offset = (page - 1) * pageSize;
         List<User> userList = userMapper.getList(offset, pageSize);

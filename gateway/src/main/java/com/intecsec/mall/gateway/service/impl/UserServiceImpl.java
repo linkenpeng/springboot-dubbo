@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO getUser(String userName) {
+        return userClient.getUser(userName);
+    }
+
+    @Override
     public List<UserDTO> getUserList(int page, int pageSize) {
         return userClient.getUserList(page, pageSize);
     }
