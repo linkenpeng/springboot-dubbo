@@ -1,3 +1,4 @@
+/**
 package com.intecsec.mall.gateway.config;
 
 import com.intecsec.mall.gateway.service.UserService;
@@ -14,10 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
-/**
- * @author Peter.Peng
- * @date 2021/4/30
- */
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -62,3 +59,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	}
 }
+
+ */

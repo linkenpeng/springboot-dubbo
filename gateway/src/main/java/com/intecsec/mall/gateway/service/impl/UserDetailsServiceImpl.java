@@ -1,3 +1,4 @@
+/**
 package com.intecsec.mall.gateway.service.impl;
 
 import com.intecsec.mall.gateway.service.UserService;
@@ -10,11 +11,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-/**
- * @author Peter.Peng
- * @date 2021/4/30
- * https://blog.csdn.net/qq_41566980/article/details/108284880
- */
+
+ // * @author Peter.Peng
+ // * @date 2021/4/30
+ // * https://blog.csdn.net/qq_41566980/article/details/108284880
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -34,3 +35,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return null;
 	}
 }
+*/

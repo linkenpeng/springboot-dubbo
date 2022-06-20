@@ -12,9 +12,8 @@ import org.springframework.context.annotation.ImportResource;
  * @create: 2020-02-12 21:02
  **/
 @SpringBootApplication
-// @EnableDubbo
-// @Import(value = { XxlJobConfig.class })
-@ImportResource({ "spring-context.xml" })
+@EnableDubbo
+// @ImportResource({ "spring-context.xml" })
 public class ItemApp {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(ItemApp.class);

@@ -29,6 +29,7 @@
             <artifactId>order-client</artifactId>
         </dependency>
 
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -37,11 +38,22 @@
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
         </dependency>
+        -->
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>common-dubbo</artifactId>
             <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
         </dependency>
 
     </dependencies>

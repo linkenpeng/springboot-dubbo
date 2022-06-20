@@ -2,7 +2,7 @@
 <configuration>
 
     <!--<springProperty scope="context" name="LOG_HOME" source="log.file.dir"/>-->
-    <property name="LOG_HOME" value="/data/java/logs/intecsec/dubbo/user"/>
+    <property name="LOG_HOME" value="logs/intecsec/dubbo/user"/>
 
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
