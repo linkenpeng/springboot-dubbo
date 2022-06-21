@@ -23,7 +23,7 @@ public class OrderController extends BaseController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/add", produces = "application/json;charset=UTF-8")
     public Object addOrder(@RequestBody AddOrderDTO addOrderDTO) {
         addOrderDTO.setUser_id(userId);
         log.info("addOrderDTO:{}", JsonUtils.toJson(addOrderDTO));
